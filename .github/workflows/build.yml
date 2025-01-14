@@ -76,7 +76,7 @@ jobs:
             variant: bisheng
             image: adoptopenjdk/centos7_build_image
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4.2.2
 
     - name: Build Linux within container image "${{ matrix.image }}"
       run: |
@@ -109,7 +109,7 @@ jobs:
         echo "TEST_JDK_HOME=$(dirname "${imageroot}")" | sed "s,${HOME},/home/jenkins," >> "$GITHUB_ENV"
 
     - name: Checkout aqa-tests repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.2.2
       with:
         repository: adoptium/aqa-tests
         path: aqa-tests
@@ -152,7 +152,7 @@ jobs:
         variant: [temurin]
 
     steps:
-    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
     # https://github.com/actions/runner-images/issues/6817
     - name: (Mac) Workaround for homebrew
@@ -383,7 +383,7 @@ jobs:
        shell: bash
        run: mkdir -p "$HOME" && git config --system core.autocrlf false && git config --global --add safe.directory '*'
 
-     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
        with:
          set-safe-directory: false
 
